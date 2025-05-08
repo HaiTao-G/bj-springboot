@@ -1,0 +1,15 @@
+server:
+  port:8080
+spring:
+  application:
+    name: bj-springboot
+  datasource:
+    url: jdbc:mysql://localhost:3306/bj?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      # 表存在时更新表而不是重新生成
+      ddl-auto: update
+    show-sql: true
