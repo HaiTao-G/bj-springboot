@@ -3,7 +3,10 @@ package com.haitao.bjspringboot.controller;
 import com.haitao.bjspringboot.entity.Result;
 import com.haitao.bjspringboot.entity.pojo.User;
 import com.haitao.bjspringboot.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.HtmlUtils;
 
@@ -13,10 +16,9 @@ public class LoginController {
     @Autowired
     UserService userService;
 
-    @CrossOrigin
     @PostMapping(value = "/api/login")
     @ResponseBody
-    public Result login(@RequestBody User requestUser) {
+    public Result login(@RequestBody User requestUser, HttpServletRequest request) {
         String username = requestUser.getUsername();
         username = HtmlUtils.htmlEscape(username);
 
